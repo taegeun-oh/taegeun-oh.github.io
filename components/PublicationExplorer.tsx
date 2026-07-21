@@ -40,15 +40,16 @@ export function PublicationExplorer() {
       <p className="result-count" aria-live="polite">{visible.length} results</p>
       <div className="publication-list">
         {visible.map((item) => {
-          const href = item.url ?? `https://scholar.google.com/scholar?q=${encodeURIComponent(item.title)}`;
+          const href = item.status === "Published" ? item.url : undefined;
+          const showPublicationDetails = item.status === "Published";
           return (
-            <article className="publication-item" key={item.id}>
+            <article className={`publication-item${href ? "" : " publication-item-no-link"}`} key={item.id}>
               <div className="publication-year">{item.year}</div>
               <div className="publication-copy">
-                <div className="publication-meta"><span>{publicationTypeLabels[item.type]}</span><span className={`status status-${item.status.toLowerCase().replace(" ", "-")}`}>{item.status}</span>{item.indexes?.map((index) => <span className={`index-badge index-${index.toLowerCase()}`} key={index}>{index}</span>)}</div>
-                <h2>{item.title}</h2><p className="authors">{item.authors}</p><p className="venue">{item.venue}{item.details ? ` · ${item.details}` : ""}</p>
+                <div className="publication-meta"><span>{publicationTypeLabels[item.type]}</span><span className={`status status-${item.status.toLowerCase().replace(" ", "-")}`}>{item.status}</span>{showPublicationDetails && item.indexes?.map((index) => <span className={`index-badge index-${index.toLowerCase()}`} key={index}>{index}</span>)}</div>
+                <h2>{item.title}</h2><p className="authors">{item.authors}</p>{showPublicationDetails && <p className="venue">{item.venue}{item.details ? ` · ${item.details}` : ""}</p>}
               </div>
-              <a className="publication-link" href={href} target="_blank" rel="noreferrer" aria-label={`Find ${item.title}`}>↗</a>
+              {href && <a className="publication-link" href={href} target="_blank" rel="noreferrer" aria-label={`Open the official publication page for ${item.title}`}>↗</a>}
             </article>
           );
         })}
