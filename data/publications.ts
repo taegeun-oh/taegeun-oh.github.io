@@ -8,6 +8,7 @@
 
 export type PublicationType = "journal" | "conference" | "domestic" | "book";
 export type PublicationStatus = "Published" | "Submitted" | "Major revision";
+export type PublicationIndex = "SCIE" | "Scopus" | "KCI";
 
 export type Publication = {
   id: string;
@@ -17,6 +18,7 @@ export type Publication = {
   authors: string;
   title: string;
   venue: string;
+  indexes?: PublicationIndex[];
   details?: string;
   url?: string;
   featured?: boolean;
@@ -28,36 +30,39 @@ export const publications: Publication[] = [
     authors: "Taegeun Oh",
     title: "Time-Window-Aware Sampling-Based Path Planning for Time-Constrained Unmanned Aerial Vehicle Missions",
     venue: "Journal of Aerospace Information Systems",
+    indexes: ["SCIE", "Scopus"],
   },
   {
     id: "jang-xgate-net", year: 2026, type: "journal", status: "Submitted",
     authors: "Sungjun Jang, Minkyoung Kim, Dongjin Jeon, and Taegeun Oh",
     title: "XGate-Net: Gated Cross-Task Interaction for Efficient Multi-Task Perception in Autonomous Driving",
     venue: "Signal, Image and Video Processing",
+    indexes: ["SCIE", "Scopus"],
   },
   {
     id: "jang-triv-net", year: 2026, type: "journal", status: "Major revision",
     authors: "Sungjun Jang and Taegeun Oh",
     title: "TriV-Net: Multi-Task Learning Network for Triple Visual Perception using UAV Imagery",
     venue: "Image and Vision Computing",
+    indexes: ["SCIE", "Scopus"],
   },
   {
     id: "choi-multi-organ", year: 2026, type: "journal", status: "Published",
     authors: "Jong-ryul Choi, Sungjun Jang, Sung Suk Oh, Ji Yun Lee, Kyujung Kim, and Taegeun Oh",
     title: "A Comparative Analysis of Deep Learning Models for Disease Classification in Multi-organ Histopathological Images",
-    venue: "Scientific Reports", details: "July 2026", featured: true,
+    venue: "Scientific Reports", details: "July 2026", indexes: ["SCIE", "Scopus"], featured: true,
   },
   {
     id: "choi-rabbit-brain", year: 2026, type: "journal", status: "Published",
     authors: "Jong-ryul Choi, Minkwon Jeon, Si Won Choi, and Taegeun Oh",
     title: "A Comparative Study on Deep Learning Architectures for Classification of Photothrombotic Damaged Regions in Histopathological Rabbit Brain",
-    venue: "Biomedical Signal Processing and Control", details: "Vol. 111, 108354, January 2026", featured: true,
+    venue: "Biomedical Signal Processing and Control", details: "Vol. 111, 108354, January 2026", indexes: ["SCIE", "Scopus"], featured: true,
   },
   {
     id: "oh-ta-rrt", year: 2025, type: "journal", status: "Published",
     authors: "Taegeun Oh, Yun-Jae Won, and Sungjin Lee",
     title: "TA-RRT*: Adaptive Sampling Based Path Planning using Terrain Analysis",
-    venue: "Applied Sciences", details: "Vol. 15, No. 5, February 2025", featured: true,
+    venue: "Applied Sciences", details: "Vol. 15, No. 5, February 2025", indexes: ["SCIE", "Scopus"], featured: true,
   },
   {
     id: "jung-delivery-robot", year: 2024, type: "conference", status: "Published",
@@ -70,7 +75,7 @@ export const publications: Publication[] = [
     id: "kwon-anger-gait", year: 2023, type: "domestic", status: "Published",
     authors: "Beom Kwon and Taegeun Oh",
     title: "Multi-Time Window Feature Extraction Technique for Anger Detection in Gait Data",
-    venue: "Journal of the Korea Society of Computer and Information", details: "Vol. 28, No. 4, pp. 41–51, April 2023",
+    venue: "Journal of the Korea Society of Computer and Information", details: "Vol. 28, No. 4, pp. 41–51, April 2023", indexes: ["KCI"],
   },
   {
     id: "oh-mobility-path-planning-book", year: 2023, type: "book", status: "Published",
@@ -82,55 +87,55 @@ export const publications: Publication[] = [
     id: "oh-flight-control-fault", year: 2022, type: "journal", status: "Published",
     authors: "Taegeun Oh and Hyung-sik Yoon",
     title: "A Fault Management Design of Dual-Redundant Flight Control Computer for Unmanned Aerial Vehicle",
-    venue: "Journal of the Korean Society for Aeronautical and Space Sciences", details: "Vol. 50, No. 5, pp. 349–357, May 2022 (SCOPUS)",
+    venue: "Journal of the Korean Society for Aeronautical and Space Sciences", details: "Vol. 50, No. 5, pp. 349–357, May 2022", indexes: ["Scopus", "KCI"],
   },
   {
     id: "chang-autonomous-mission", year: 2021, type: "journal", status: "Published",
     authors: "Woohyuk Chang, Seungkyu Lee, Yun-Geun Kim, and Taegeun Oh",
     title: "Autonomous Mission Management Software Design and Verification Technique for Unmanned Aerial Vehicles",
-    venue: "Journal of the Korean Society for Aeronautical and Space Sciences", details: "Vol. 49, No. 6, pp. 505–513, June 2021 (SCOPUS)",
+    venue: "Journal of the Korean Society for Aeronautical and Space Sciences", details: "Vol. 49, No. 6, pp. 505–513, June 2021", indexes: ["Scopus", "KCI"],
   },
   {
     id: "kim-autonomous-awareness", year: 2021, type: "domestic", status: "Published",
     authors: "Yun-Geun Kim, Woohyuk Chang, Kwangmin Kim, and Taegeun Oh",
     title: "Development of an Autonomous Situational Awareness Software for Autonomous Unmanned Aerial Vehicles",
-    venue: "Journal of Aerospace System Engineering", details: "Vol. 15, No. 2, pp. 36–44, April 2021",
+    venue: "Journal of Aerospace System Engineering", details: "Vol. 15, No. 2, pp. 36–44, April 2021", indexes: ["KCI"],
   },
   {
     id: "han-pilot-mental-state", year: 2020, type: "journal", status: "Published",
     authors: "Soo-Yeon Han, No-Sang Kwak, Taegeun Oh, and Seong-Whan Lee",
     title: "Classification of Pilots’ Mental States using a Multimodal Deep Learning Network",
-    venue: "Biocybernetics and Biomedical Engineering", details: "Vol. 40, No. 1, pp. 324–336, January 2020",
+    venue: "Biocybernetics and Biomedical Engineering", details: "Vol. 40, No. 1, pp. 324–336, January 2020", indexes: ["SCIE", "Scopus"],
   },
   {
     id: "kim-uhd-sharpness", year: 2017, type: "journal", status: "Published",
     authors: "Haksub Kim, Jongyoo Kim, Taegeun Oh, and Sanghoon Lee",
     title: "Blind Sharpness Prediction for Ultra-high-definition Video based on Human Visual Resolution",
-    venue: "IEEE Transactions on Circuits and Systems for Video Technology", details: "Vol. 27, No. 5, pp. 951–964, May 2017",
+    venue: "IEEE Transactions on Circuits and Systems for Video Technology", details: "Vol. 27, No. 5, pp. 951–964, May 2017", indexes: ["SCIE", "Scopus"],
   },
   {
     id: "oh-comic-fingerprint", year: 2015, type: "journal", status: "Published",
     authors: "Taegeun Oh, Nakyeon Choi, Doeyoung Kim, and Sanghoon Lee",
     title: "Low-complexity and Robust Comic Fingerprint Method for Comic Identification",
-    venue: "Signal Processing: Image Communication", details: "Vol. 39, Part A, pp. 1–16, November 2015",
+    venue: "Signal Processing: Image Communication", details: "Vol. 39, Part A, pp. 1–16, November 2015", indexes: ["SCIE", "Scopus"],
   },
   {
     id: "oh-blind-sharpness-motion", year: 2015, type: "journal", status: "Published",
     authors: "Taegeun Oh and Sanghoon Lee",
     title: "Blind Sharpness Prediction Based on Image-Based Motion Blur Analysis",
-    venue: "IEEE Transactions on Broadcasting", details: "Vol. 61, No. 1, pp. 1–15, March 2015",
+    venue: "IEEE Transactions on Broadcasting", details: "Vol. 61, No. 1, pp. 1–15, March 2015", indexes: ["SCIE", "Scopus"],
   },
   {
     id: "oh-camera-shaken", year: 2014, type: "journal", status: "Published",
     authors: "Taegeun Oh, Jincheol Park, Kalpana Seshadrinathan, Sanghoon Lee, and Alan C. Bovik",
     title: "No-reference Sharpness Assessment of Camera-Shaken Images by Analysis of Spectral Structure",
-    venue: "IEEE Transactions on Image Processing", details: "Vol. 23, No. 12, pp. 5428–5439, December 2014",
+    venue: "IEEE Transactions on Image Processing", details: "Vol. 23, No. 12, pp. 5428–5439, December 2014", indexes: ["SCIE", "Scopus"],
   },
   {
     id: "oh-video-multicast", year: 2014, type: "journal", status: "Published",
     authors: "Taegeun Oh and Sanghoon Lee",
     title: "Cooperative and Joint Video Multicast over MIMO-OFDM Networks",
-    venue: "Digital Signal Processing", details: "Vol. 33, pp. 98–115, October 2014",
+    venue: "Digital Signal Processing", details: "Vol. 33, pp. 98–115, October 2014", indexes: ["SCIE", "Scopus"],
   },
   {
     id: "oh-assessing-motion-blur", year: 2014, type: "conference", status: "Published",
@@ -151,19 +156,19 @@ export const publications: Publication[] = [
     id: "lee-visual-sensor-network", year: 2014, type: "domestic", status: "Published",
     authors: "Inwoong Lee, Haksup Kim, Taegeun Oh, and Sanghoon Lee",
     title: "Study on Low Delay and Adaptive Video Transmission for a Surveillance System in Visual Sensor Networks",
-    venue: "Journal of the Korean Institute of Communications and Information Sciences", details: "Vol. 39, No. 5, pp. 435–446, May 2014",
+    venue: "Journal of the Korean Institute of Communications and Information Sciences", details: "Vol. 39, No. 5, pp. 435–446, May 2014", indexes: ["KCI"],
   },
   {
     id: "oh-dynamic-bandwidth", year: 2013, type: "journal", status: "Published",
     authors: "Taegeun Oh, Hyungkeuk Lee, and Sanghoon Lee",
     title: "Dynamic Bandwidth and Carrier Allocation for Video Broadcast/Multicast over Multi-cell Environments",
-    venue: "Wireless Personal Communications", details: "Vol. 69, No. 4, pp. 1925–1945, April 2013",
+    venue: "Wireless Personal Communications", details: "Vol. 69, No. 4, pp. 1925–1945, April 2013", indexes: ["SCIE", "Scopus"],
   },
   {
     id: "lee-device-aware", year: 2013, type: "journal", status: "Published",
     authors: "Inwoong Lee, Jincheol Park, Seonghyun Kim, Taegeun Oh, and Sanghoon Lee",
     title: "Device-aware Visual Quality Adaptation for Wireless N-screen Multicast Systems",
-    venue: "IEICE Transactions on Communications", details: "Vol. E96-B, No. 12, pp. 3181–3189, December 2013",
+    venue: "IEICE Transactions on Communications", details: "Vol. E96-B, No. 12, pp. 3181–3189, December 2013", indexes: ["SCIE", "Scopus"],
   },
   {
     id: "kim-stereoscopic-discomfort", year: 2013, type: "conference", status: "Published",
@@ -174,19 +179,19 @@ export const publications: Publication[] = [
     id: "oh-block-truncation", year: 2012, type: "journal", status: "Published",
     authors: "Taegeun Oh and Sanghoon Lee",
     title: "Implementation of Multimode-Multilevel Block Truncation Coding for LCD Overdrive",
-    venue: "IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences", details: "Vol. E95-A, No. 5, pp. 867–875, May 2012",
+    venue: "IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences", details: "Vol. E95-A, No. 5, pp. 867–875, May 2012", indexes: ["SCIE", "Scopus"],
   },
   {
     id: "oh-throughput-qos", year: 2009, type: "journal", status: "Published",
     authors: "Taegeun Oh, Sanghoon Lee, and Gye-Tae Gil",
     title: "Increasing Throughput and QoS using Bandwidth and Region Division with Frequency Overlay over Multicell Environments",
-    venue: "IEICE Transactions on Communications", details: "Vol. E92-B, No. 1, pp. 85–92, January 2009",
+    venue: "IEICE Transactions on Communications", details: "Vol. E92-B, No. 1, pp. 85–92, January 2009", indexes: ["SCIE", "Scopus"],
   },
   {
     id: "ha-macroblock-weighting", year: 2009, type: "journal", status: "Published",
     authors: "Hojin Ha, Taegeun Oh, and Sanghoon Lee",
     title: "Macroblock-based Frequency Selective Weighting for Visual Scalable Video Coding of H.264/AVC",
-    venue: "IEEE Transactions on Broadcasting", details: "Vol. 55, No. 3, pp. 559–568, September 2009",
+    venue: "IEEE Transactions on Broadcasting", details: "Vol. 55, No. 3, pp. 559–568, September 2009", indexes: ["SCIE", "Scopus"],
   },
   {
     id: "park-power-allocation", year: 2009, type: "conference", status: "Published",
