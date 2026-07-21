@@ -45,8 +45,6 @@ export default function Home() {
         <div className="section-heading row-heading"><div><p className="eyebrow">Selected publications</p><h2>Recent work</h2></div><Link className="text-link" href="/publications">All publications <span>→</span></Link></div>
         <div className="featured-publications">{featured.map((item) => <article key={item.id}><div className="featured-meta"><span>{item.year}</span><span>{publicationTypeLabels[item.type]}</span></div><h3>{item.title}</h3><p>{item.venue}</p></article>)}</div>
       </section>
-
-      <section className="section-shell code-callout"><div><p className="eyebrow">Open research</p><h2>Code that turns papers<br />into reproducible work.</h2></div><div><p>Our code hub is organized for clear installation, data preparation, evaluation, and citation.</p><Link className="button button-light" href="/code">Browse research code <span>↗</span></Link></div></section>
     </PageFrame>
   );
 }
