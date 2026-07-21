@@ -5,7 +5,6 @@ const navItems = [
   ["People", "/people"],
   ["Teaching", "/teaching"],
   ["Publications", "/publications"],
-  ["Code", "/code"],
 ] as const;
 
 export function SiteHeader() {
