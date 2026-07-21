@@ -65,3 +65,19 @@ test("starts Publications with the list and renders index badges", async () => {
   assert.doesNotMatch(html, /Image and Vision Computing/);
   assert.doesNotMatch(html, /Ideas, tested/);
 });
+
+test("groups Teaching courses into three concise areas", async () => {
+  const response = await render("/teaching");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, />Teaching</);
+  assert.match(html, /Programming &amp; Computing Foundations/);
+  assert.match(html, /AI, Vision &amp; Robotics/);
+  assert.match(html, /Design &amp; Research Practice/);
+  assert.match(html, /C Programming/);
+  assert.match(html, /Undergraduate Research Project/);
+  assert.doesNotMatch(html, /Learning by/);
+  assert.doesNotMatch(html, /Undergraduate Research Mentoring/);
+  assert.doesNotMatch(html, /Outstanding Faculty Award/);
+});
