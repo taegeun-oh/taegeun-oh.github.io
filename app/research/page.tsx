@@ -13,7 +13,7 @@ const areas = [
 
 export default function ResearchPage() {
   return <PageFrame>
-    <section className="section-shell research-detail-list research-first">{areas.map((area) => <article id={area.id} key={area.id} className="research-detail"><div className="detail-number">{area.number}</div><div className="detail-copy"><h2>{area.title}</h2><p>{area.summary}</p></div><ul>{area.topics.map((topic) => <li key={topic}>{topic}</li>)}</ul><figure className="research-visual"><Image src={area.image} alt={area.alt} width={1448} height={1086} sizes="(max-width: 700px) calc(100vw - 78px), (max-width: 980px) calc(100vw - 146px), 390px" /></figure></article>)}</section>
+    <section className="section-shell research-detail-list research-first">{areas.map((area) => <article id={area.id} key={area.id} className="research-detail"><div className="detail-number">{area.number}</div><div className="detail-copy"><h2>{area.title}</h2><p>{area.summary}</p></div><ul>{area.topics.map((topic) => <li key={topic}>{topic}</li>)}</ul><figure className="research-visual"><Image src={area.image} alt={area.alt} width={1448} height={1086} sizes="(max-width: 700px) calc(100vw - 78px), (max-width: 980px) calc(100vw - 146px), 390px" unoptimized /></figure></article>)}</section>
     <section className="section-shell process-section"><div><p className="eyebrow">How we work</p><h2>Research through<br />the full loop.</h2></div><ol>
       <li><span>01</span><div><strong>Frame</strong><p>Define a real operational constraint, not just a benchmark target.</p></div></li>
       <li><span>02</span><div><strong>Model</strong><p>Build interpretable perception and planning methods around that constraint.</p></div></li>
