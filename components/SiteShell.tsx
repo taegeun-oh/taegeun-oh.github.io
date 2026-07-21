@@ -1,0 +1,45 @@
+import Link from "next/link";
+
+const navItems = [
+  ["Research", "/research"],
+  ["People", "/people"],
+  ["Publications", "/publications"],
+  ["Code", "/code"],
+] as const;
+
+export function SiteHeader() {
+  return (
+    <header className="site-header">
+      <div className="header-inner">
+        <Link className="brand" href="/" aria-label="VAI Lab home">
+          <span className="brand-mark" aria-hidden="true">V</span>
+          <span><strong>VAI Lab</strong><small>Vision · Autonomy · Intelligence</small></span>
+        </Link>
+        <nav className="main-nav" aria-label="Primary navigation">
+          {navItems.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
+        </nav>
+        <a className="header-cta" href="https://github.com/taegeun-oh/Vision-AI" target="_blank" rel="noreferrer">
+          GitHub <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </header>
+  );
+}
+
+export function SiteFooter() {
+  return (
+    <footer className="site-footer">
+      <div className="footer-grid">
+        <div><p className="eyebrow">Vision & Autonomous Intelligence Lab</p><h2>Building systems that perceive, plan, and act.</h2></div>
+        <div className="footer-contact">
+          <span>Dong Seoul University</span><span>Seongnam, Gyeonggi-do, Korea</span><a href="mailto:tgoh@du.ac.kr">tgoh@du.ac.kr</a>
+        </div>
+      </div>
+      <div className="footer-bottom"><span>© {new Date().getFullYear()} VAI Lab</span><span>Computer Vision · Autonomous Systems · Intelligent Planning</span></div>
+    </footer>
+  );
+}
+
+export function PageFrame({ children }: { children: React.ReactNode }) {
+  return <><SiteHeader /><main>{children}</main><SiteFooter /></>;
+}
