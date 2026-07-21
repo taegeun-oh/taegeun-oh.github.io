@@ -3,6 +3,7 @@ import Link from "next/link";
 const navItems = [
   ["Research", "/research"],
   ["People", "/people"],
+  ["Teaching", "/teaching"],
   ["Publications", "/publications"],
   ["Code", "/code"],
 ] as const;
