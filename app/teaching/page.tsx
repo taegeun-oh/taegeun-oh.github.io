@@ -1,31 +1,31 @@
 import type { Metadata } from "next";
 import { PageFrame } from "@/components/SiteShell";
+import { teachingAreas } from "@/data/teaching";
 
 export const metadata: Metadata = {
   title: "Teaching",
   description: "Courses taught by Taegeun Oh at Dong Seoul University.",
 };
 
-const courses = [
-  "Undergraduate Research Project",
-  "Robot Path Planning",
-  "Software Engineering",
-  "Introduction to Artificial Intelligence",
-  "Introduction to Image Processing",
-  "Capstone Design",
-];
-
 export default function TeachingPage() {
   return <PageFrame>
-    <section className="page-hero section-shell compact-hero teaching-hero">
-      <p className="eyebrow">Teaching</p>
-      <h1>Learning by<br /><em>building.</em></h1>
-      <p>Courses connect foundational ideas in software, artificial intelligence, and visual computing with practical autonomous-system design.</p>
-    </section>
-    <section className="section-shell teaching-page-section">
-      <div className="teaching-section">
-        <div><p className="eyebrow">Current courses</p><h2>From fundamentals<br />to field systems.</h2></div>
-        <div className="course-grid">{courses.map((course, index) => <div key={course}><span>{String(index + 1).padStart(2, "0")}</span><strong>{course}</strong></div>)}</div>
+    <section className="section-shell teaching-page teaching-first">
+      <header className="teaching-heading">
+        <div>
+          <p className="eyebrow">Dong Seoul University</p>
+          <h1>Teaching</h1>
+        </div>
+        <p>Courses spanning computing foundations, intelligent systems, and project-based engineering practice.</p>
+      </header>
+      <div className="teaching-areas">
+        {teachingAreas.map((area) => <article className="teaching-area" key={area.number}>
+          <div className="teaching-area-heading">
+            <span>{area.number}</span>
+            <h2>{area.title}</h2>
+          </div>
+          <p>{area.summary}</p>
+          <ul>{area.courses.map((course) => <li key={course}>{course}</li>)}</ul>
+        </article>)}
       </div>
     </section>
   </PageFrame>;
