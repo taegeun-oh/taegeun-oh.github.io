@@ -45,7 +45,7 @@ test("starts Research with topics and includes all four illustrations", async ()
   assert.match(html, /research-autonomy\.webp/);
   assert.match(html, /research-path-planning\.webp/);
   assert.match(html, /research-perception\.webp/);
-  assert.match(html, /research-image-quality\.webp/);
+  assert.match(html, /research-image-quality-v2\.webp/);
   assert.doesNotMatch(html, /Systems that move/);
 });
 
@@ -58,5 +58,10 @@ test("starts Publications with the list and renders index badges", async () => {
   assert.match(html, /index-scie/);
   assert.match(html, /index-scopus/);
   assert.match(html, /index-kci/);
+  assert.match(html, /https:\/\/doi\.org\/10\.3390\/app15052287/);
+  assert.doesNotMatch(html, /scholar\.google\.com/);
+  assert.doesNotMatch(html, /Journal of Aerospace Information Systems/);
+  assert.doesNotMatch(html, /Signal, Image and Video Processing/);
+  assert.doesNotMatch(html, /Image and Vision Computing/);
   assert.doesNotMatch(html, /Ideas, tested/);
 });
