@@ -1,10 +1,10 @@
 /**
  * EDITING GUIDE
  * Add a publication by copying one object below, assigning a unique `id`, and
- * updating its fields. The Publications page, search, filters, and homepage
- * highlights all update automatically. Set `featured: true` only for work that
- * should appear on the homepage. Add `url` only for an official DOI or
- * publisher page; entries without one are shown without an external link.
+ * updating its fields. The Publications page, search, filters, metrics, and
+ * homepage highlights all update automatically. The homepage selects the four
+ * most recent published SCIE journal articles. Add `url` only for an official
+ * DOI or publisher page; entries without one are shown without an external link.
  */
 
 export type PublicationType = "journal" | "conference" | "domestic" | "book";
@@ -22,7 +22,6 @@ export type Publication = {
   indexes?: PublicationIndex[];
   details?: string;
   url?: string;
-  featured?: boolean;
 };
 
 export const publications: Publication[] = [
@@ -52,28 +51,28 @@ export const publications: Publication[] = [
     authors: "Jong-ryul Choi, Sungjun Jang, Sung Suk Oh, Ji Yun Lee, Kyujung Kim, and Taegeun Oh",
     title: "A Comparative Analysis of Deep Learning Models for Disease Classification in Multi-organ Histopathological Images",
     venue: "Scientific Reports", details: "June 2026", indexes: ["SCIE", "Scopus"],
-    url: "https://doi.org/10.1038/s41598-026-56045-z", featured: true,
+    url: "https://doi.org/10.1038/s41598-026-56045-z",
   },
   {
     id: "choi-rabbit-brain", year: 2026, type: "journal", status: "Published",
     authors: "Jong-ryul Choi, Minkwon Jeon, Si Won Choi, and Taegeun Oh",
     title: "A Comparative Study on Deep Learning Architectures for Classification of Photothrombotic Damaged Regions in Histopathological Rabbit Brain",
     venue: "Biomedical Signal Processing and Control", details: "Vol. 111, 108354, January 2026", indexes: ["SCIE", "Scopus"],
-    url: "https://doi.org/10.1016/j.bspc.2025.108354", featured: true,
+    url: "https://doi.org/10.1016/j.bspc.2025.108354",
   },
   {
     id: "oh-ta-rrt", year: 2025, type: "journal", status: "Published",
     authors: "Taegeun Oh, Yun-Jae Won, and Sungjin Lee",
     title: "TA-RRT*: Adaptive Sampling Based Path Planning using Terrain Analysis",
     venue: "Applied Sciences", details: "Vol. 15, No. 5, February 2025", indexes: ["SCIE", "Scopus"],
-    url: "https://doi.org/10.3390/app15052287", featured: true,
+    url: "https://doi.org/10.3390/app15052287",
   },
   {
     id: "jung-delivery-robot", year: 2024, type: "conference", status: "Published",
     authors: "Suhyun Jung, Woomin Jun, Taegeun Oh, and Sungjin Lee",
     title: "Performance Analysis of Motion Planning for Outdoor Autonomous Delivery Robot",
     venue: "2024 IEEE International Conference on Consumer Electronics (ICCE)",
-    details: "Las Vegas, USA, January 2024", url: "https://doi.org/10.1109/ICCE59016.2024.10444300", featured: true,
+    details: "Las Vegas, USA, January 2024", url: "https://doi.org/10.1109/ICCE59016.2024.10444300",
   },
   {
     id: "kwon-anger-gait", year: 2023, type: "domestic", status: "Published",
@@ -229,6 +228,27 @@ export const publications: Publication[] = [
     url: "https://doi.org/10.1109/VETECS.2008.587",
   },
 ];
+
+export const publishedPublications = publications.filter(
+  (publication) => publication.status === "Published",
+);
+
+export const publishedPublicationCounts = {
+  journals: publishedPublications.filter(
+    (publication) => publication.type === "journal",
+  ).length,
+  conferences: publishedPublications.filter(
+    (publication) => publication.type === "conference",
+  ).length,
+};
+
+export const latestPublishedScieJournals = publishedPublications
+  .filter(
+    (publication) =>
+      publication.type === "journal" && publication.indexes?.includes("SCIE"),
+  )
+  .sort((a, b) => b.year - a.year)
+  .slice(0, 4);
 
 export const publicationTypeLabels: Record<PublicationType, string> = {
   journal: "International journal",

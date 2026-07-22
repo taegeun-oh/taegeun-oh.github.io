@@ -8,15 +8,15 @@ export const metadata: Metadata = {
     template: "%s · VAI Lab",
   },
   description:
-    "Research in computer vision, autonomous systems, UAV mission intelligence, and intelligent path planning led by Taegeun Oh at Dong Seoul University.",
+    "Research in autonomous systems, intelligent path planning, computer vision, and medical image intelligence led by Taegeun Oh at Dong Seoul University.",
   openGraph: {
     title: "Vision & Autonomous Intelligence Lab",
     description:
       "Computer vision and autonomous intelligence for systems that perceive, plan, and act.",
     type: "website",
-    images: [{ url: "/og.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
   },
-  twitter: { card: "summary_large_image", images: ["/og.jpg"] },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
 };
 
 export default function RootLayout({

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { publicationTypeLabels, publications, type PublicationType } from "@/data/publications";
+import { publicationTypeLabels, publishedPublications, type PublicationType } from "@/data/publications";
 
 type Filter = "all" | PublicationType;
 const filters: { value: Filter; label: string }[] = [
@@ -17,7 +17,7 @@ export function PublicationExplorer() {
   const [query, setQuery] = useState("");
   const visible = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return publications.filter((item) => {
+    return publishedPublications.filter((item) => {
       const matchesType = filter === "all" || item.type === filter;
       const haystack = `${item.title} ${item.authors} ${item.venue} ${item.year} ${item.indexes?.join(" ") ?? ""}`.toLowerCase();
       return matchesType && (!normalized || haystack.includes(normalized));
