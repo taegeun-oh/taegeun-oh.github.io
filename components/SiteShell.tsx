@@ -19,7 +19,7 @@ export function SiteHeader() {
           {navItems.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
         </nav>
         <a className="header-cta" href="https://github.com/taegeun-oh/Vision-AI" target="_blank" rel="noreferrer">
-          GitHub <span aria-hidden="true">↗</span>
+          Research code <span aria-hidden="true">↗</span>
         </a>
       </div>
     </header>
@@ -30,12 +30,12 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-grid">
-        <div><p className="eyebrow">Vision & Autonomous Intelligence Lab</p><h2>Building systems that perceive, plan, and act.</h2></div>
+        <div><p className="eyebrow">Vision & Autonomous Intelligence Lab</p><h2>From visual evidence to reliable intelligent action.</h2></div>
         <div className="footer-contact">
           <span>Dong Seoul University</span><span>Seongnam, Gyeonggi-do, Korea</span><a href="mailto:tgoh@du.ac.kr">tgoh@du.ac.kr</a>
         </div>
       </div>
-      <div className="footer-bottom"><span>© {new Date().getFullYear()} VAI Lab</span><span>Computer Vision · Autonomous Systems · Intelligent Planning</span></div>
+      <div className="footer-bottom"><span>© {new Date().getFullYear()} VAI Lab</span><span>Autonomy · Planning · Perception · Medical Image AI</span></div>
     </footer>
   );
 }
